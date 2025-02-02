@@ -2,7 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import io from "socket.io-client";
 
-const socket = io("https://rtc-server-bsgm.onrender.com"); // Connect to signaling server
+const socket = io("https://rtc-server-bsgm.onrender.com", {
+  transports: ["websocket"],
+}); // Connect to signaling server
 
 export default function VideoChat() {
   const localVideoRef = useRef(null);
